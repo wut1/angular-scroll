@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>iscroll</title>
+    <link rel="stylesheet" href="css/bootstrap.min.3.3.5.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="" ng-controller="iSclController">
+        <div class="hd">
+            <ul>
+                <li ng-class="{'selected':!showStatus}" ng-click="showStatus=false">1</li>
+                <li ng-class="{'selected':showStatus}" ng-click="showStatus=true">2</li>
+            </ul>
+        </div>
+        <div class="bd">
+            <div id="wrapper">
+                <div id="scroller">
+                    <div class="scroll-ui" ng-show="!showStatus">
+                        <ul scroll-repeat="list1">
+                            <li ng-repeat="obj in list1" scroll-id="wrapper" angular-scroll="iscroll">
+                                <span ng-bind="obj.id"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scroll-ui" ng-show="showStatus">
+                        <ul scroll-repeat="list2">
+                            <li ng-repeat="obj in list2" scroll-id="wrapper" angular-scroll="iscroll">
+                                <span ng-bind="obj.id"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/iscroll-probe.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
